@@ -10,6 +10,7 @@ RUN git clone https://github.com/Dakarun/mkdocs-blog.git
 
 ENV PATH="/root/.local/bin:$PATH"
 WORKDIR /opt/mkdocs-blog
+RUN git pull
 RUN POETRY_VIRTUALENVS_CREATE=false poetry install --no-root --only main --no-interaction --no-ansi
 RUN mkdocs -V
 
