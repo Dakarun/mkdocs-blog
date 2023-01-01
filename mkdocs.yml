@@ -1,2 +1,2 @@
 site_name: Jasper's blog
-edit_uri: blog/
+site_url: !ENV [SITE_URL, 'http://homelab-1:8000/blog/']
