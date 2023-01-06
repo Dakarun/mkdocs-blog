@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {%- block site_meta %}
+    <meta charset="utf-8">
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"> {%- block htmltitle %}
+    <title>{% if page and page.title %}{{ page.title }} - {% endif %}{{ config.site_name }}</title>
+    {%- endblock %}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> {% if config.site_description %}
+    <meta name="description" content="{{ config.site_description }}">{% endif %}
+    <meta name="generator" content="mkdocs-{{ mkdocs_version }}, mkdocs-gitbook-{{ config.theme.version }}"> {% if config.site_author %}
+    <meta name="author" content="{{ config.site_author }}">{% endif %}
+    <link rel="shortcut icon" href="{{ base_url }}/images/favicon.ico" type="image/x-icon">
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta rel="next" href="" /> {%- endblock %}
+    {%- block styles %}
+    <link href="{{ base_url }}/css/style.css" rel="stylesheet">
+    {%- for path in extra_css %}
+    <link href="{{ path }}" rel="stylesheet">
+    {%- endfor %}
+    {%- endblock %}
+    {%- block extrahead %}
+    {% endblock %}
+</head>
+
+<body>
+    {{ content }}
+        {%- block scripts %}
+        {%- for path in extra_javascript %}
+        <script src="{{ path }}"></script>
+        {%- endfor %} {%- endblock %} {%- block libs %}
+        {%- endblock %}
+</body>
+
+</html>

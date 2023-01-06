@@ -1,2 +1,14 @@
 site_name: Jasper's blog
 site_url: !ENV [SITE_URL, 'http://homelab-1:8000/blog/']
+
+nav:
+  - Home: 'index.md'
+  - Posts: 'posts/index.md'
+
+#theme:
+#  name: blog
+#  locale: en
+#  custom_dir: theme/
+#  static_templates:
+#    - main.html
+#  include_sidebar: false
