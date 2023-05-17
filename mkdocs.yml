@@ -4,7 +4,49 @@ site_url: !ENV [SITE_URL, 'http://homelab-1:8000/blog/']
 nav:
   - Home: 'index.md'
   - Posts: 'posts/index.md'
+  - 'Knowledge Base':
+      - Spark: 'knowledge_base/spark/core.md'
+      - Python: 'knowledge_base/python/core.md'
+      - Infrastructure: 'knowledge_base/infra/core.md'
 
+plugins:
+  - search
+  - mermaid2:
+      arguments:
+        theme: |
+          ^(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'dark'
+
+extra_javascript:
+  - https://unpkg.com/mermaid/dist/mermaid.min.js
+
+theme:
+  name: material
+  logo: assets/shitty-blog-icon.png
+  palette:
+    scheme: slate
+    primary: black
+  features:
+    - navigation.sections
+    - toc.follow
+
+extra:
+  generator: false
+
+extra_css:
+  - assets/stylesheets/extra.css
+
+# https://squidfunk.github.io/mkdocs-material/reference/code-blocks/
+markdown_extensions:
+  - pymdownx.highlight: # https://facelessuser.github.io/pymdown-extensions/extensions/highlight/
+      anchor_linenums: true
+      linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
 #theme:
 #  name: blog
 #  locale: en
